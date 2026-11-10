@@ -1,22 +1,27 @@
- Week 1 Database Assignment
- Topic: Library Management System
+SELECT
+    employees.firstName,
+    employees.lastName,
+    employees.email,
+    employees.officeCode
+    FROM employees
+    INNER JOIN offices
+    ON employees.officeCode = offices.officeCode;
+    
+    SELECT
+    products.productName,
+    products.productVendor,
+    productlines.productLine
+    FROM products
+LEFT JOIN productlines
+    ON products.productLine = productlines.productLine;
+    
+    SELECT
+    orders.orderDate,
+    orders.shippedDate,
+    orders.status,
+    orders.customerNumber
+    FROM customers
+RIGHT JOIN orders
+    ON customers.customerNumber = orders.customerNumber
+LIMIT 10;
 
-CREATE DATABASE library_management;
-
-USE library_management;
-
-CREATE TABLE books (
-    book_id INT PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(150) NOT NULL,
-    author VARCHAR(100) NOT NULL,
-    category VARCHAR(50),
-    published_year INT
-);
-
-INSERT INTO books (title, author, category, published_year)
-VALUES
-('Things Fall Apart', 'Chinua Achebe', 'Fiction', 1958),
-('The River Between', 'Ngugi wa Thiong''o', 'Fiction', 1965),
-('Clean Code', 'Robert C. Martin', 'Technology', 2008);
-
-SELECT * FROM books;
